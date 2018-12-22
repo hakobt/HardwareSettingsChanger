@@ -38,7 +38,6 @@ dependencies {
 
     /** Android arch libraries */
     implementation "android.arch.lifecycle:extensions:1.1.1"
-    annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
     kapt "android.arch.lifecycle:compiler:1.1.1"
 
     testImplementation 'junit:junit:4.12'
