@@ -11,8 +11,7 @@ import nut.coco.adouble.settingschanger.data.response.Audio
  * Package nut.coco.adouble.settingschanger
  */
 
-class VolumeService(private val context: Context):
-    HardwareSettingsService<Audio> {
+class VolumeService(context: Context) : HardwareSettingsService<Audio> {
 
     private val audioManager = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
 
@@ -20,11 +19,10 @@ class VolumeService(private val context: Context):
     val volumeStateLiveData: LiveData<Int> = volumeStateMutableLiveData
 
     override fun setSettings(data: Audio) {
-        val maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC)
-
+        val maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_NOTIFICATION)
         val finalVolume = (data.volume * maxVolume).toInt()
 
-        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, finalVolume, 0)
+        audioManager.setStreamVolume(AudioManager.STREAM_NOTIFICATION, finalVolume, 0)
 
         volumeStateMutableLiveData.value = finalVolume
     }

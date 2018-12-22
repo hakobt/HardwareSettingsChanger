@@ -7,7 +7,6 @@ import com.squareup.moshi.Moshi
 import nut.coco.adouble.settingschanger.data.response.RemoteSettingsData
 import nut.coco.adouble.settingschanger.data.response.RemoteSettingsDataJsonAdapter
 import okhttp3.*
-import okhttp3.logging.HttpLoggingInterceptor
 import java.io.IOException
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
@@ -27,6 +26,7 @@ class RemoteDataSource {
 
     private val handler = Handler(Looper.getMainLooper())
 
+    // callback to notify listener about new received data.
     var callback: ((RemoteSettingsData) -> Unit)? = null
 
     private val requestScheduler = Executors.newSingleThreadScheduledExecutor()
@@ -36,9 +36,6 @@ class RemoteDataSource {
     private val moshi = Moshi.Builder().build()
 
     private val okHttpClient = OkHttpClient.Builder()
-        .addInterceptor(HttpLoggingInterceptor().apply {
-            level = HttpLoggingInterceptor.Level.BODY
-        })
         .build()
 
     fun start() {

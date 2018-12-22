@@ -19,13 +19,6 @@ class App : Application() {
         lateinit var instance: App
     }
 
-    private lateinit var bluetoothService: BluetoothService
-    private lateinit var wifiService: WifiService
-    private lateinit var volumeService: VolumeService
-    private lateinit var screenService: ScreenService
-
-    private lateinit var remoteDataSource: RemoteDataSource
-
     lateinit var settingsRepository: SettingsRepository
 
     override fun onCreate() {
@@ -33,12 +26,12 @@ class App : Application() {
 
         instance = this
 
-        bluetoothService = BluetoothService(this)
-        wifiService = WifiService(this)
-        volumeService = VolumeService(this)
-        screenService = ScreenService(this)
+        val bluetoothService = BluetoothService()
+        val wifiService = WifiService(this)
+        val volumeService = VolumeService(this)
+        val screenService = ScreenService(this)
 
-        remoteDataSource = RemoteDataSource()
+        val remoteDataSource = RemoteDataSource()
 
         settingsRepository = SettingsRepository(
             bluetoothService,

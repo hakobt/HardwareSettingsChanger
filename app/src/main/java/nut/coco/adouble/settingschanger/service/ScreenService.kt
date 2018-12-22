@@ -9,6 +9,8 @@ import nut.coco.adouble.settingschanger.data.response.Screen
 /**
  * Created by Hakob Tovmasyan on 12/20/18
  * Package nut.coco.adouble.settingschanger
+ *
+ * Changes screen brightness
  */
 class ScreenService(private val context: Context) : HardwareSettingsService<Screen> {
 

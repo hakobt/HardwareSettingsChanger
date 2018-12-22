@@ -19,7 +19,7 @@ class SettingsRepository(
     private val remoteDataSource: RemoteDataSource
 ) {
 
-    val bluetootStateLiveData = bluetoothService.bluetoothStateLiveData
+    val bluetoothStateLiveData = bluetoothService.bluetoothStateLiveData
     val wifiStateLiveData = wifiService.wifiStateLiveData
     val volumeStateLiveData = volumeService.volumeStateLiveData
     val brightnessLiveData = screenService.brightnessLiveData
