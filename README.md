@@ -1,8 +1,8 @@
 # HardwareSettingsChanger
 Changes hardware settings based on remote data
 
-#Can you use this ?
+# Can you use this ?
 Yes.
 
-#Should you use this ?
+# Should you use this ?
 No.
